@@ -1,0 +1,20 @@
+# Accompaniment Backend
+
+## Start Redis
+docker run --name accompaniment-redis -p 6379:6379 -d --restart unless-stopped redis
+
+## Seed Database
+ts-node .\seed\CreateListasChequeo.ts
+
+## Start project
+npm run dev
+
+## Generate Models
+### Toda la base de datos
+./node_modules/.bin/sequelize-auto -o "./src/assistance/models/sqlserver/base" -d asistencia -h SQLServerDev -u sa -p 1433 -x sqlx32123+. -e mssql --cm p --cf p --cp p -l ts
+
+### Algunas tablas
+./node_modules/.bin/sequelize-auto -o "./src/assistance2/models/sqlserver/base" -d asistencia -h SQLServerDev -u sa -p 1433 -x sqlx32123+. -e mssql --cm p --cf p --cp p -l ts -t encuesta_invitado invitado
+
+### Algun esquema
+./node_modules/.bin/sequelize-auto -o "./src/assistance2/models/sqlserver/base" -d asistencia -h SQLServerDev -u sa -p 1433 -x sqlx32123+. -e mssql --cm p --cf p --cp p -l ts -s asistencia

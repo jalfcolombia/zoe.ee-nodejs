@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="UTF-8"?><Db flnm="assistance" nm="assistance" ver="1.3.4">
+  <VerLbl/>
+  <VerNotes/>
+  <DefTblOpts/>
+  <DocFolder>C:\Users\David\Downloads\Telegram Desktop</DocFolder>
+  <Sch Cm="" nm="asistencia">
+    <Tbl UsSo="1" nm="asistencia">
+      <TblOpts/>
+      <Pk ClNs="id" nm="pkasistencia"/>
+      <Cl au="0" df="newid()" nm="id" nu="0">
+        <DT arr="0" ds="UniqueID" en="" id="704" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="charla_id" nu="0">
+        <DT arr="0" ds="UniqueID" en="" id="704" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="tipo_documento" nu="1">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="40" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="documento" nu="0">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="20" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="correo" nu="1">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="500" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="ficha" nu="1">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Ficha a la que pertence el aprendiz</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="programa_formacion" nu="1">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="500" sc="null" sg="1" un="0"/>
+        <Cm>Nombre del programa de formación</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="codigo_centro" nu="1">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Código del centro de formación</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="centro_formacion" nu="1">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="500" sc="null" sg="1" un="0"/>
+        <Cm>Nombre del centro de formación</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="regional" nu="1">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="50" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="modalidad_formacion" nu="1">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="5" sc="null" sg="1" un="0"/>
+        <Cm>V - Virtual ; P - Presencial ; A - A distancia ; C - Combinada ; D - Desescolarizada</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="tipo_programa" nu="1">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="1" sc="null" sg="1" un="0"/>
+        <Cm>T - Titulada ; C - Complementaria</Cm>
+      </Cl>
+      <Cl au="0" df="getdate()" nm="created_at" nu="0">
+        <DT arr="0" ds="DateTime" en="" id="700" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="deleted_at" nu="1">
+        <DT arr="0" ds="DateTime" en="" id="700" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Fk deAc="3" nm="fk_asistencia_charla" prLkCl="id" upAc="3">
+        <PrTb mn="0" nm="charla" oe="1" sch="asistencia" zr="0"/>
+        <CdTb mn="1" nm="asistencia" oe="1" sch="asistencia" zr="0"/>
+        <ClPr cdCl="charla_id" prCl="id"/>
+      </Fk>
+      <Idx clu="0" ftx="0" nm="asistencia_charla_id_Idx" spa="0" unq="0">
+        <ClNs>charla_id</ClNs>
+        <OptTx/>
+      </Idx>
+      <Idx clu="0" ftx="0" nm="asistencia_tipo_documento_documento_Idx" spa="0" unq="0">
+        <ClNs>tipo_documento, documento</ClNs>
+        <OptTx/>
+      </Idx>
+      <UniqueConstraints/>
+      <SchTrHis/>
+    </Tbl>
+    <Tbl UsSo="1" nm="charla">
+      <TblOpts/>
+      <Pk ClNs="id" nm="pkcharla"/>
+      <Cl au="0" df="newid()" nm="id" nu="0">
+        <DT arr="0" ds="UniqueID" en="" id="704" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="nombre" nu="0">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="500" sc="null" sg="1" un="0"/>
+        <Cm>Nombre de la charla</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="expositor" nu="0">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="500" sc="null" sg="1" un="0"/>
+        <Cm>Nombre de la persona que dicta la charla</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="fecha_inicio" nu="0">
+        <DT arr="0" ds="DateTime" en="" id="700" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="fecha_fin" nu="0">
+        <DT arr="0" ds="DateTime" en="" id="700" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="0" nm="tiempo_margen" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Tiempo en minutos de margen para seguir tomando asistencia después de que termine la charla</Cm>
+      </Cl>
+      <Cl au="0" df="0" nm="usuarios_zoom" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="tipo_transferencia" nu="1">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="50" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="publico" nu="1">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="50" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="1" nm="activated" nu="0">
+        <DT arr="0" ds="Bit" en="" id="-7" ln="1" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="getdate()" nm="created_at" nu="0">
+        <DT arr="0" ds="DateTime" en="" id="700" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="deleted_at" nu="1">
+        <DT arr="0" ds="DateTime" en="" id="700" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <UniqueConstraints/>
+      <SchTrHis/>
+    </Tbl>
+    <Tbl UsSo="1" nm="encuesta_invitado">
+      <TblOpts/>
+      <Pk ClNs="id" nm="pkencuesta_invitado"/>
+      <Cl au="0" df="newid()" nm="id" nu="0">
+        <DT arr="0" ds="UniqueID" en="" id="704" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="pregunta" nu="0">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="100" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="orden" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="0" un="0"/>
+      </Cl>
+      <Cl au="0" df="1" nm="activated" nu="0">
+        <DT arr="0" ds="Bit" en="" id="-7" ln="1" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="getdate()" nm="created_at" nu="0">
+        <DT arr="0" ds="DateTime" en="" id="700" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <UniqueConstraints/>
+      <SchTrHis/>
+    </Tbl>
+    <Tbl UsSo="1" nm="invitado">
+      <TblOpts/>
+      <Pk ClNs="id" nm="pkinvitado"/>
+      <Cl au="0" df="newid()" nm="id" nu="0">
+        <DT arr="0" ds="UniqueID" en="" id="704" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="charla_id" nu="0">
+        <DT arr="0" ds="UniqueID" en="" id="704" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="encuesta_id" nu="1">
+        <DT arr="0" ds="UniqueID" en="" id="704" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="tipo_documento" nu="0">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="40" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="documento" nu="0">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="20" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="correo" nu="1">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="500" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="encuesta_respuesta" nu="1">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="140" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="1" nm="aprobado" nu="0">
+        <DT arr="0" ds="Bit" en="" id="-7" ln="1" sc="null" sg="1" un="0"/>
+        <Cm>Esto es el aprobado por parte del usuario en cuanto a tratar su correo para fines de publicidad por parte del SENA</Cm>
+      </Cl>
+      <Cl au="0" df="getdate()" nm="created_at" nu="0">
+        <DT arr="0" ds="DateTime" en="" id="700" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="deleted_at" nu="1">
+        <DT arr="0" ds="DateTime" en="" id="700" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Fk deAc="3" nm="fk_invitado_charla" prLkCl="id" upAc="3">
+        <PrTb mn="0" nm="charla" oe="1" sch="asistencia" zr="0"/>
+        <CdTb mn="1" nm="invitado" oe="1" sch="asistencia" zr="0"/>
+        <ClPr cdCl="charla_id" prCl="id"/>
+      </Fk>
+      <Fk deAc="3" nm="fk_invitado_encuesta_invitado" prLkCl="id" upAc="3">
+        <PrTb mn="0" nm="encuesta_invitado" oe="1" sch="asistencia" zr="1"/>
+        <CdTb mn="1" nm="invitado" oe="1" sch="asistencia" zr="0"/>
+        <ClPr cdCl="encuesta_id" prCl="id"/>
+      </Fk>
+      <Idx clu="0" ftx="0" nm="invitado_charla_id_Idx" spa="0" unq="0">
+        <ClNs>charla_id</ClNs>
+        <OptTx/>
+      </Idx>
+      <Idx clu="0" ftx="0" nm="invitado_encuesta_invitado_id_Idx" spa="0" unq="0">
+        <ClNs>encuesta_id</ClNs>
+        <OptTx/>
+      </Idx>
+      <UniqueConstraints/>
+      <SchTrHis/>
+    </Tbl>
+    <CustomTypes/>
+  </Sch>
+  <Dgm nm="asistencia">
+    <RnCf ClkAct="true" FtSz="12" lkStgy="OffsetDirect" zm="1.0">
+      <VbCfg>
+        <Fg ky="Auto Number" vl="0"/>
+        <Fg ky="Check" vl="0"/>
+        <Fg ky="Comment" vl="0"/>
+        <Fg ky="Data Type" vl="1"/>
+        <Fg ky="Default" vl="0"/>
+        <Fg ky="ENUM Values" vl="0"/>
+        <Fg ky="Length" vl="1"/>
+        <Fg ky="Name" vl="1"/>
+        <Fg ky="Nullable" vl="0"/>
+        <Fg ky="Schema Name" vl="0"/>
+        <Fg ky="Signed" vl="0"/>
+      </VbCfg>
+    </RnCf>
+    <DiaProps>
+      <Show AllCols="1" FkCols="1" FkNms="0" PkCols="1"/>
+      <ErNotation>BarkerErNotation</ErNotation>
+      <DbTableRectangleFill>HeaderFooterFill</DbTableRectangleFill>
+      <svg path=""/>
+    </DiaProps>
+    <TbGl bkCl="ff4c78ff" sch="asistencia" tbl="asistencia" x="167" y="63"/>
+    <TbGl bkCl="ff4c78ff" sch="asistencia" tbl="charla" x="552" y="70"/>
+    <TbGl bkCl="ff4c78ff" sch="asistencia" tbl="invitado" x="551" y="393"/>
+    <TbGl bkCl="ff4c78ff" sch="asistencia" tbl="encuesta_invitado" x="221" y="447"/>
+    <FkGl bkCl="ff000000" childEdge="EAST" nm="asistencia.asistencia.fk_asistencia_charla" parentEdge="WEST" positioner="OneLineUserLinkPositioner">
+      <positionableLines/>
+    </FkGl>
+    <FkGl bkCl="ff000000" childEdge="NORTH" nm="asistencia.invitado.fk_invitado_charla" parentEdge="SOUTH" positioner="OneLineUserLinkPositioner">
+      <positionableLines/>
+    </FkGl>
+    <FkGl bkCl="ff000000" childEdge="" nm="asistencia.invitado.fk_invitado_encuesta_invitado" parentEdge="" positioner="">
+      <positionableLines/>
+    </FkGl>
+    <Notes/>
+    <Zones/>
+  </Dgm>
+  <RnmMgr>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="encuesta_invitado" SupCls="Schema" SupNme="asistencia">
+      <Rnm nNm="id" oNm="Id"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="invitado" SupCls="Schema" SupNme="asistencia">
+      <Rnm nNm="encuesta_id" oNm="encuesta_invitado_id"/>
+    </RnmCh>
+  </RnmMgr>
+  <DbDocOptionMgr>
+    <BasicOptionMgr>
+      <Name>db.doc.option.mgr</Name>
+      <BoolOpt lbl="Diagrams" nm="doc.diagrams" on="1" spl="0"/>
+      <BoolOpt lbl="Foreign Keys" nm="doc.fks" on="1" spl="0"/>
+      <BoolOpt lbl="Indexes" nm="doc.indexes" on="1" spl="0"/>
+      <BoolOpt lbl="Overwrite CSS File" nm="doc.overwrite.css" on="1" spl="0"/>
+      <BoolOpt lbl="Procedures" nm="doc.procs" on="1" spl="0"/>
+      <BoolOpt lbl="Schemas" nm="doc.schemas" on="1" spl="0"/>
+      <BoolOpt lbl="Sequences" nm="doc.sequences" on="1" spl="0"/>
+      <BoolOpt lbl="Tables" nm="doc.tables" on="1" spl="0"/>
+      <BoolOpt lbl="Triggers" nm="doc.triggers" on="1" spl="0"/>
+      <BoolOpt lbl="Views" nm="doc.views" on="1" spl="0"/>
+    </BasicOptionMgr>
+  </DbDocOptionMgr>
+  <OpenEditors>
+    <OpenEditor ClsNm="Diagram" fqn="null.asistencia" selected="1"/>
+  </OpenEditors>
+  <TreePaths>
+    <TreePath/>
+    <TreePath>/Schemas (1)</TreePath>
+    <TreePath>/Diagrams (1)</TreePath>
+  </TreePaths>
+  <SqlTexts/>
+</Db>
